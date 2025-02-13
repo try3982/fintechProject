@@ -1,3 +1,4 @@
+import com.zerobase.domain.domain.UserInfo
 import com.zerobase.domain.repository.UserInfoRepository
 import org.springframework.stereotype.Service
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableDescriptor.UserDataKey
@@ -7,7 +8,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.CallableDescriptor.UserDataK
 class TestService (
     private val userInfoRepository : UserInfoRepository
 ) {
-    fun testGetService(userKey: String) {
-        userInfoRepository.findByUserKey(userKey)
-    }
+    fun testGetService(userKey: String) = userInfoRepository.findByUserKey(userKey)
+    fun UserInfo.todto() = TestDto.UserInfoDto(userKey, userRegisterationNumber, userName, userIncomeAmount)
+
 }
